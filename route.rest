@@ -1,0 +1,35 @@
+
+GET http://localhost:3000/guestbook
+
+###
+
+GET http://localhost:3000/guestbook/6786e86bb996e37a6b7f5c88
+
+###
+
+POST http://localhost:3000/guestbook
+Content-Type: application/json
+
+{ "name": "Dick", "message": "Hi World"  }
+
+
+###
+
+DELETE http://localhost:3000/guestbook/6787d021e909e080d1e12903
+
+###
+
+PATCH  http://localhost:3000/guestbook/6786f29970413cab783e1aef
+Content-Type: application/json
+
+{ "message": "Mr Mike says goodjob young soul." }
+
+###
+
+POST http://localhost:3000/mail
+Content-Type: application/json
+
+{ "mailaddress": "damichelle@rest.com", "message": "Hello World", "subject": "Mail through post-route"  }
+
+
+###
