@@ -1,4 +1,5 @@
 require("dotenv").config();
+const path = require("path");
 
 const express = require("express");
 const app = express();
@@ -12,6 +13,9 @@ const app = express();
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
 // const guestbookRouter = require("./routes/guestbookRouter");
 const mailRouter = require("./routes/mailRouter");
 
