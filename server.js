@@ -14,28 +14,9 @@ const app = express();
 
 const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
 
-// const corsOptions = {
-//   origin: FRONTEND_URL,
-//   optionsSuccessStatus: 200,
-//   credentials: true,
-// };
-
-// app.use(cors(corsOptions));
-
-// Use FRONTEND_URL if set, otherwise default to localhost
-
-// // Set CORS headers to allow requests from the frontend
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", FRONTEND_URL);
-//   next();
-// });
-
 app.use(
   cors({
-    origin: [
-      "https://petterjakobsson.netlify.app",
-      "https://petterjakobsson.netlify.app/",
-    ],
+    origin: [FRONTEND_URL],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
