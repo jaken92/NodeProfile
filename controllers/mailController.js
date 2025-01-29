@@ -2,9 +2,9 @@ require("dotenv").config();
 const sgMail = require("@sendgrid/mail");
 
 const sendMail = async (req, res) => {
-  const { mailaddress, message, subject, firstName, lastName } = req.body;
+  const { email, message, subject, firstName, lastName } = req.body;
 
-  if (!mailaddress || !message || !subject || !firstName || !lastName) {
+  if (!email || !message || !subject || !firstName || !lastName) {
     return res.status(400).json({
       error:
         "Missing required fields: mails, message, and subject are required.",
@@ -17,7 +17,7 @@ const sendMail = async (req, res) => {
       to: process.env.SENDER_EMAIL,
       from: process.env.RECIPIENT_EMAIL,
       subject: subject,
-      text: `${firstName} ${lastName} sent you the message: ${message} - sent from ${mailaddress}`,
+      text: `${firstName} ${lastName} sent you the message: ${message} - sent from ${email}`,
     };
 
     await sgMail.send(msg);
