@@ -16,7 +16,10 @@ const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
 
 app.use(
   cors({
-    origin: [FRONTEND_URL],
+    origin: [
+      "https://petterjakobsson.netlify.app",
+      "https://petterjakobsson.netlify.app/",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
