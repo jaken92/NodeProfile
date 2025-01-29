@@ -12,8 +12,6 @@ const app = express();
 // db.on("error", (error) => console.log(error));
 // db.once("open", () => console.log("Connected to db"));
 
-const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
-
 app.use(
   cors({
     origin: [
