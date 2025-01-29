@@ -1,5 +1,6 @@
 require("dotenv").config();
 const path = require("path");
+const cors = require("cors");
 
 const express = require("express");
 const app = express();
@@ -10,6 +11,14 @@ const app = express();
 
 // db.on("error", (error) => console.log(error));
 // db.once("open", () => console.log("Connected to db"));
+
+const corsOptions = {
+  origin: "https://petterjakobsson.netlify.app/",
+  optionsSuccessStatus: 200,
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
