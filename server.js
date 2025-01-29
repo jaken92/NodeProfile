@@ -14,13 +14,13 @@ const app = express();
 
 const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
 
-const corsOptions = {
-  origin: FRONTEND_URL,
-  optionsSuccessStatus: 200,
-  credentials: true,
-};
+// const corsOptions = {
+//   origin: FRONTEND_URL,
+//   optionsSuccessStatus: 200,
+//   credentials: true,
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 // Use FRONTEND_URL if set, otherwise default to localhost
 
@@ -29,6 +29,17 @@ app.use(cors(corsOptions));
 //   res.setHeader("Access-Control-Allow-Origin", FRONTEND_URL);
 //   next();
 // });
+
+app.use(
+  cors({
+    origin: [
+      "https://petterjakobsson.netlify.app",
+      "https://petterjakobsson.netlify.app/",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.use(express.json());
 
